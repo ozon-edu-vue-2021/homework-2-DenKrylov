@@ -1,6 +1,6 @@
 <template>
 	<ul id="tree">
-		<tree-branch></tree-branch>
+		<tree-branch :item="data"></tree-branch>
 	</ul>
 </template>
 
