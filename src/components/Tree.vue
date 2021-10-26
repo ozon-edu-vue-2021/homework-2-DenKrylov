@@ -9,7 +9,7 @@
 			<img :src="getIcon()" :alt="getType()">
 			<span :class="highlight()">{{ name }}</span>
 		</div>
-		<ul v-show="isOpen">
+		<ul v-if="isOpen">
 			<tree
 				v-for="(el, i) in item.contents"
 				:key="i"
@@ -56,9 +56,7 @@ export default{
 		action: function() {
 			if(this.type == 'directory') {
 				this.isOpen = !this.isOpen;
-			} else {
-				console.log("h");
-			}
+			} 
 		},
 		branch: function() {
 			if(this.type == 'directory') {
@@ -87,11 +85,11 @@ li {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	width: 200px;
 }
-/* .branch:active {
-	outline: 1px solid rgb(65, 184, 131);
-} */
+.branch:focus {
+	color: rgb(61, 174, 233);
+	outline: none;
+}
 .folder {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -108,8 +106,6 @@ span::selection {
 	background: rgb(61, 174, 233);
 }
 span:hover {
-	color: rgba(49, 54, 59, 1);
-	background: rgb(65, 184, 131);
 	text-decoration: underline;
 }
 

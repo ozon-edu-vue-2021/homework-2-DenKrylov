@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import Data from '../public/static/node_modules1.json';
+import Data from '../public/static/node_modules.json';
 import Tree from './components/Tree.vue';
 import Pwd from './components/Pwd.vue';
 
