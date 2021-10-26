@@ -1,8 +1,13 @@
 <template>
 	<li id="tree">
-		<div :class="branch()" @click="action()">
-			<img v-bind:src="getIcon()" :alt="getType()">
-			<span>{{ name }}</span>
+		<div 
+			:class="branch()"
+			@click="action()"
+			@keyup.enter="action()"
+			tabindex="0"
+		>
+			<img :src="getIcon()" :alt="getType()">
+			<span :class="highlight()">{{ name }}</span>
 		</div>
 		<ul v-show="isOpen">
 			<tree
@@ -23,6 +28,7 @@ export default{
 	},
 	data: function() {
 		return {
+			pwd: '',
 			isOpen: false,
 			name: this.item.name,
 			type: this.item.type,
@@ -50,8 +56,8 @@ export default{
 		action: function() {
 			if(this.type == 'directory') {
 				this.isOpen = !this.isOpen;
-			} else if(this.type != 'directory') {
-				document.getSelection().setBaseAndExtent();
+			} else {
+				console.log("h");
 			}
 		},
 		branch: function() {
@@ -59,6 +65,11 @@ export default{
 				return 'folder branch';
 			} else {
 				return 'branch';
+			}
+		},
+		highlight: function() {
+			if(this.type != 'directory') {
+				return 'highlight';
 			}
 		}
 	}
@@ -74,11 +85,12 @@ li {
 }
 .branch {
 	display: flex;
+	flex-direction: row;
 	align-items: center;
 }
-span::selection {
-    color: rgba(49, 54, 59, 1);
-	background: rgb(65, 184, 131);
+.branch:focus {
+	outline: 1px solid rgb(65, 184, 131);
+
 }
 .folder {
   -webkit-touch-callout: none;
@@ -87,6 +99,18 @@ span::selection {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+.highlight {
+	user-select: all;
+}
+span::selection {
+    color: rgba(49, 54, 59, 1);
+	background: rgb(61, 174, 233);
+}
+span:hover {
+	color: rgba(49, 54, 59, 1);
+	background: rgb(65, 184, 131);
+	text-decoration: underline;
 }
 
 </style>
