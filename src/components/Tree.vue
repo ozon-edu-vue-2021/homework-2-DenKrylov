@@ -70,7 +70,6 @@ li {
 	display: flex;
 	flex-direction: column;
 	margin-left: 25px;
-	height: 25px;
 	cursor: pointer;
 }
 .branch {

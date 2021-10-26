@@ -32,9 +32,15 @@ body {
   background: rgba(49, 54, 59, 1);
   color: rgb(65, 184, 131);
 }
+ul {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  display: flex;
 }
 </style>
