@@ -87,11 +87,11 @@ li {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	width: 200px;
 }
-.branch:focus {
+/* .branch:active {
 	outline: 1px solid rgb(65, 184, 131);
-
-}
+} */
 .folder {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
