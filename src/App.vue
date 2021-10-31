@@ -1,9 +1,6 @@
 <template>
   <div id="app">
-    <div>
-      <pwd class="pwd" :path="path"/>
-      <span>{{ path }}</span>
-    </div>
+    <pwd class="pwd" :path="path"/>
     <ul id="tree" class="tree">
       <tree :item="data" :pwd="pwd" :onPath="onPath"></tree>
     </ul>
