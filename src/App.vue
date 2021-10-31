@@ -18,16 +18,16 @@ import Pwd from './components/Pwd.vue';
 export default {
   name: 'App',
   data: function() {
-		return {
-			data: data,
+    return {
+      data: data,
       path: "",
       pwd: ""
-		}
-	},
-	components: {
-		Tree,
+    }
+  },
+  components: {
+    Tree,
     Pwd
-	},
+  },
   methods: {
     onPath(pwd) {
       this.path = pwd;
