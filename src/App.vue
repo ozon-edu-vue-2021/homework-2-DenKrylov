@@ -1,14 +1,17 @@
 <template>
   <div id="app">
-    <pwd class="pwd" :pwd="pwd" />
+    <div>
+      <pwd class="pwd" :path="path"/>
+      <span>{{ path }}</span>
+    </div>
     <ul id="tree" class="tree">
-      <tree :item="data" :item2="pwd"></tree>
+      <tree :item="data" :pwd="pwd" :onPath="onPath"></tree>
     </ul>
   </div>
 </template>
 
 <script>
-import Data from '../public/static/node_modules.json';
+import data from '../public/static/node_modules.json';
 import Tree from './components/Tree.vue';
 import Pwd from './components/Pwd.vue';
 
@@ -16,14 +19,20 @@ export default {
   name: 'App',
   data: function() {
 		return {
-			data: Data,
+			data: data,
+      path: "",
       pwd: ""
 		}
 	},
 	components: {
 		Tree,
     Pwd
-	}
+	},
+  methods: {
+    onPath(pwd) {
+      this.path = pwd;
+    }
+  }
 }
 </script>
 

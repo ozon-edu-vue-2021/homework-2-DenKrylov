@@ -1,15 +1,15 @@
 <template>
 	<div>
-		<span>PWD: {{ item }}</span>
+		<span>Path:</span>
+		<span>{{ path }}</span>
 	</div>
 </template>
 
 <script>
-
 export default{
 	name: 'pwd',
 	props: {
-		item: String,
+		path: String,
 	},
 }
 </script>
