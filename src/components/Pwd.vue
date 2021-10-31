@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<span>PWD: </span>
+		<span>PWD: {{ item }}</span>
 	</div>
 </template>
 
@@ -9,7 +9,7 @@
 export default{
 	name: 'pwd',
 	props: {
-		item: Object,
+		item: String,
 	},
 }
 </script>

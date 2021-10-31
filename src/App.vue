@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <pwd class="pwd"/>
+    <pwd class="pwd" :pwd="pwd" />
     <ul id="tree" class="tree">
-      <tree :item="data"></tree>
+      <tree :item="data" :item2="pwd"></tree>
     </ul>
   </div>
 </template>
@@ -17,6 +17,7 @@ export default {
   data: function() {
 		return {
 			data: Data,
+      pwd: ""
 		}
 	},
 	components: {

@@ -7,13 +7,14 @@
 			tabindex="0"
 		>
 			<img :src="getIcon()" :alt="getType()">
-			<span :class="highlight()">{{ name }}</span>
+			<span :class="highlight()">{{ name }} {{ "------" }} {{ pwd }}{{ "------" }} {{ item2 }}</span>
 		</div>
 		<ul v-if="isOpen">
 			<tree
-				v-for="(el, i) in item.contents"
-				:key="i"
-				:item=el
+				v-for="el in item.contents"
+				:key=el.pwd
+				:item="el"
+				:item2="pwd"
 			></tree>
 		</ul>
 	</li>
@@ -25,13 +26,14 @@ export default{
 	name: 'tree',
 	props: {
 		item: Object,
+		item2: String,
 	},
 	data: function() {
 		return {
-			pwd: '',
 			isOpen: false,
 			name: this.item.name,
 			type: this.item.type,
+			pwd: this.item2 + this.item.name + "/",
 		}
 	},
 	methods: {
@@ -56,6 +58,7 @@ export default{
 		action: function() {
 			if(this.type == 'directory') {
 				this.isOpen = !this.isOpen;
+				this.item2 = this.pwd;
 			} 
 		},
 		branch: function() {
