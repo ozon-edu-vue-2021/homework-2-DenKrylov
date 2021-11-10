@@ -1,28 +1,70 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <pwd class="pwd" :path="path"/>
+    <ul id="tree" class="tree">
+      <tree :item="data" :pwd="pwd" :onPath="onPath"></tree>
+    </ul>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import data from '../public/static/node_modules.json';
+import Tree from './components/Tree.vue';
+import Pwd from './components/Pwd.vue';
 
 export default {
   name: 'App',
+  data: function() {
+    return {
+      data: data,
+      path: "",
+      pwd: ""
+    }
+  },
   components: {
-    HelloWorld
+    Tree,
+    Pwd
+  },
+  methods: {
+    onPath(pwd) {
+      this.path = pwd;
+    }
   }
 }
 </script>
 
 <style>
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: rgba(49, 54, 59, 1);
+  color: rgb(65, 184, 131);
+}
+ul {
+  display: flex;
+  flex-direction: column;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+}
+.tree {
+  margin-top: 30px;
+}
+.pwd {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 25px;
+  border-bottom: 1px solid rgb(65, 184, 131);
+  background: rgba(49, 54, 59, 1);
 }
 </style>
